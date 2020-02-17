@@ -8,6 +8,11 @@
 
 #define SIZE 100
 
+/*Global Variables*/
+char globalArray[SIZE][SIZE];
+int newSize;
+
+/*Function Prototypes*/
 void getKeyboardInput(int);
 
 int main(int argc, char *argv[]) {
@@ -20,7 +25,6 @@ int main(int argc, char *argv[]) {
 		exit(1);
 	}
 	getKeyboardInput(argc);
-
 	/*-----------------------------------
 			Regular file input section
 		-----------------------------------*/
@@ -52,23 +56,30 @@ int main(int argc, char *argv[]) {
 	while (fscanf(inputFile, "%s", inputArray[i]) != EOF) i++;
 	fclose(inputFile);
 	/*Remove duplicates from array*/
-	char newArray[SIZE][SIZE];
 	int index = 0;
-	int newSize = 0;
+	newSize = 0;
 	for (i = 0; i < numberOfStrings; i++) {
 		int j;
 		for (j = 0; j < i; j++)
 			if (strcmp(inputArray[i], inputArray[j]) == 0)
 				break;
 		if (j == i) {
-			strcpy(newArray[index++], inputArray[i]);
+			strcpy(globalArray[index++], inputArray[i]);
 			newSize++;
 		}
 	}
-	printf("\nThe strings are:\n");
+	/*printf("\nThe strings are:\n");
 	for (i = 0; i < newSize; i++) {
-		printf("%s\n", &newArray[i]);
-	}
+		printf("%s\n", &globalArray[i]);
+	}*/
+
+	/*--------------------------------
+			  Caw Caw Calls
+	---------------------------------*/
+	buildTree();
+	printInorder();
+	printPreorder();
+	printPostorder();
 
 	return 0;
 }
