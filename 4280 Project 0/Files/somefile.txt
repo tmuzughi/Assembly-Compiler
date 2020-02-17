@@ -1,14 +1,15 @@
-oranges pears
-bananas
+one
+two
+three
 apples
-strawberries limes
-lemons
-pineapples
-kiwis
-plums
 oranges
-pears
-bananas
+plums
+square
+rectangle
+triangle
 apples
-strawberries
-mangos
+three
+two
+seven
+lions
+rectangle
