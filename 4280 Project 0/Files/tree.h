@@ -1,7 +1,9 @@
 #ifndef TREE_H
 #define TREE_H
 
-void buildTree();
+struct node root;
+
+struct node* buildTree();
 void printInorder();
 void printPreorder();
 void printPostorder();

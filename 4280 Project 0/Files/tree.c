@@ -6,9 +6,12 @@
 
 #define SIZE 100
 
+struct node root;
+
 void buildTree() {
 	/*Initalize the root node*/
-	struct node root;
+	
+	struct node* rootPtr = &root;
 	root.level = 0;
 	root.stringLength = strlen(globalArray[0]);
 	//strcpy(root.stringArray[0], globalArray[0]);
@@ -102,18 +105,57 @@ void buildTree() {
 		
 	}
 	*/
+	
 }
 
-void printInorder() {
-	//printf("I do Inorder!\n");
+void printInorder(struct node* node)
+{
+	if (node == NULL)
+		return;
+
+	/* first recur on left child */
+	printInorder(node->leftChild);
+	int index = node->index;
+	int i;
+	for (i = 0; i < index; i++)
+		printf("%s\n", node->stringArray[i]);
+
+	/* now recur on right child */
+	printInorder(node->rightChild);
 }
 
-void printPreorder() {
-	//printf("I do Preorder!\n");
+void printPreorder(struct node* node)
+{
+	if (node == NULL)
+		return;
+
+	int index = node->index;
+	int i;
+	for (i = 0; i < index; i++)
+		printf("%s\n", node->stringArray[i]);
+
+	/* then recur on left sutree */
+	printPreorder(node->leftChild);
+
+	/* now recur on right subtree */
+	printPreorder(node->rightChild);
 }
 
-void printPostorder() {
-	//printf("I do Postorder!\n");
+void printPostorder(struct node* node)
+{
+	if (node == NULL)
+		return;
+
+	// first recur on left subtree 
+	printPostorder(node->leftChild);
+
+	// then recur on right subtree 
+	printPostorder(node->rightChild);
+
+	int index = node->index;
+	int i;
+	for (i = 0; i < index; i++)
+		printf("%s\n", node->stringArray[i]);
 }
 
 struct node* createNode(int stringLength) {

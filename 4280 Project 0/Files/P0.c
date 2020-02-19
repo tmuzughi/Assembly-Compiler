@@ -77,9 +77,11 @@ int main(int argc, char *argv[]) {
 			  Caw Caw Calls
 	---------------------------------*/
 	buildTree();
-	printInorder();
-	printPreorder();
-	printPostorder();
+	printInorder(&root);
+	printf("\n");
+	printPreorder(&root);
+	printf("\n");
+	printPostorder(&root);
 
 	return 0;
 }
