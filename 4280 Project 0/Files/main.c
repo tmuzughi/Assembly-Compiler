@@ -89,6 +89,20 @@ int main(int argc, char *argv[]) {
 	/*--------------------------------
 			  Caw Caw Calls
 	---------------------------------*/
+	/*Catch for empty file*/
+	if (newSize == 0) {
+		if (argc == 2) {
+			printf("File given is empty.\n");
+			return 0;
+		}
+		else
+		{
+			printf("No strings enterered.\n");
+			return 0;
+		}
+	}
+		
+
 	buildTree();
 
 	FILE* inOrderOutputFile;

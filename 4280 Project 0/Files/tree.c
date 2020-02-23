@@ -11,8 +11,7 @@ struct node root;
 
 void buildTree() {
 	/*Initalize the root node*/
-	
-	struct node* rootPtr = &root;
+	struct node* rootPtr = &root;	
 	root.level = 0;
 	root.stringLength = strlen(globalArray[0]);
 	root.index = 0;
@@ -80,6 +79,7 @@ void printPreorder(struct node* node, FILE* file)
 {
 	if (node == NULL)
 		return;
+	
 	char outputFilename[] = "outputFile.txt";
 
 	int index = node->index;
@@ -102,7 +102,7 @@ void printPostorder(struct node* node, FILE* file)
 {
 	if (node == NULL)
 		return;
-
+	
 	// first recur on left subtree 
 	printPostorder(node->leftChild, file);
 

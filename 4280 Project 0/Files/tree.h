@@ -3,9 +3,9 @@
 
 struct node root;
 
-struct node* buildTree();
-void printInorder();
-void printPreorder();
-void printPostorder();
+void buildTree();
+void printInorder(struct node*);
+void printPreorder(struct node*);
+void printPostorder(struct node*);
 
 #endif
