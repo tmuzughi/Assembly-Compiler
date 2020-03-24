@@ -1,6 +1,7 @@
 #ifndef SCANNER_H
 #define SCANNER_H
+#include "token.h"
 
-	//I am a comment
+token scanner(FILE *inputFile, token thisToken);
 
 #endif

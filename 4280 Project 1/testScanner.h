@@ -1,3 +1,6 @@
+#ifndef TESTSCANNER_H
+#define TESTSCANNER_H
 
+void testScanner(FILE *inputFile);
 
-	//I am a comment
+#endif
