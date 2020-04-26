@@ -4,7 +4,7 @@
 #include <string.h>
 #include <unistd.h>
 #include "parser.h"
-#include "testTree.h"
+#include "sem.h"
 
 #define SIZE 100
 
@@ -114,7 +114,7 @@ int main(int argc, char* argv[]) {
 	//testScanner(inputFile);
 	
 	node* root = parser(inputFile);
-	printInorder(root);
+	semantics(root);
 	fclose(inputFile);
 
 	return 0;
