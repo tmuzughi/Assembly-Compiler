@@ -1,0 +1,6 @@
+data x = 1 .
+begin
+	in x .
+	iffy [ x < 0 ] then
+		out x . .
+end

@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -g
-TARGET = statSem
+TARGET = comp
 OBJS = main.o parser.o scanner.o sem.o
 
 $(TARGET): $(OBJS)

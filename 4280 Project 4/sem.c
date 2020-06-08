@@ -7,12 +7,14 @@
 /* Global */
 char trapperKeeper[maxJanikow][maxJanikow];
 bool oneTime = true;
+int trapCount = 0;
 
 bool verify(char* string) {
 	int i;
 	for (i = 0; i < maxJanikow; i++) {
 		/* does given string match anything in our array */
 		if (strcmp(trapperKeeper[i], string) == 0) {
+			//printf("%s\n", trapperKeeper[i]);
 			/* We found a duplicate */
 			return true;
 		}
@@ -21,15 +23,19 @@ bool verify(char* string) {
 }
 
 void insert(char* string) {
+	strcpy(trapperKeeper[trapCount], string);
+	trapCount++;
+	/*
 	int i;
 	for (i = 0; i < maxJanikow; i++) {
-		/* find first "empty" spot */
+		//find first "empty" spot 
 		if (strcmp(trapperKeeper[i], "...")) {
-			/* Insert ID into empty spot */
+			// Insert ID into empty spot 
 			strcpy(trapperKeeper[i], string);
 			break;
 		}
 	}
+	*/
 }
 
 void init() {
@@ -61,6 +67,7 @@ void semantics(node* noduh) {
 				exit(1);
 			}		
 			/* No duplicates found, add ID to trapperKeeper */
+			//printf("Inserting at %s\n", node->label);
 			insert(node->tk0.tokenInstance);
 		}
 	}
@@ -70,8 +77,15 @@ void semantics(node* noduh) {
 		/* Check for duplicates */
 		/* but only if tk0 contains a proper identifier */
 		if (isalpha(node->tk0.tokenInstance[0]) != 0) {
+			/*
+			printf("calling verify at %s\n", node->label);
+			int p;
+			for (p = 0; p < maxJanikow; p++) {
+				printf("%s", trapperKeeper[p]);
+			}*/
 			if (verify(node->tk0.tokenInstance) == false) {
 				/* error/exit */
+				//printf("%s\n", node->label);
 				printf("Error: %s used before declaration.\n", node->tk0.tokenInstance);
 				exit(1);
 			}
