@@ -1,0 +1,9 @@
+data x = 1 .
+data y = 2 .
+begin
+	data z = 3 .
+	begin
+		out 1 .
+	end
+	out 2 .
+end

@@ -1,0 +1,7 @@
+data x = 1 .
+begin
+in x .
+loop [ x + 2 / 3 < 0 - * 3 ]
+	iffy [ x < > 0 ] then
+		out x . . .
+end

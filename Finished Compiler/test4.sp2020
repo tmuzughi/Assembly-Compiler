@@ -1,0 +1,6 @@
+data x = 1.
+data y = 2.
+begin
+	in x .
+	out x + 2 / ( 2 - y ) .
+end
